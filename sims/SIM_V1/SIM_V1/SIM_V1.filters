@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{fc6bc251-d227-433a-92c1-41275044b1fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{7ed3c6fb-3a3d-41a9-873f-9495144654e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{df27a433-4544-432f-bfd7-6dd4e5044bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Space">
+      <UniqueIdentifier>{18af36d1-741e-4751-948c-4f39eb42581d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entity">
+      <UniqueIdentifier>{7459cc56-0446-413a-b895-1824d4353879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine">
+      <UniqueIdentifier>{073d43a0-04b8-493d-8a58-729907d6f108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\System">
+      <UniqueIdentifier>{6d1eb1c7-ef8a-4e18-9acc-f8948a0e4914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Component">
+      <UniqueIdentifier>{f178417c-1c5f-4e9e-9681-ba0e35cf17e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\TestSystem">
+      <UniqueIdentifier>{89f69ae6-84d7-4e65-8a4a-cbf2272a84ab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Space.cpp">
+      <Filter>Core\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Core\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="engine.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Core\System</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSystem.cpp">
+      <Filter>Systems\TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Core\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="TestComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Space.h">
+      <Filter>Core\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Core\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Core\System</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="coreinclude.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSystem.h">
+      <Filter>Systems\TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TestComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

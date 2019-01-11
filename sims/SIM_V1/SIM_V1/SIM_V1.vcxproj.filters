@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="engine.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Core\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Space.cpp">
+      <Filter>Core\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Core\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Core\System</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSystem.cpp">
+      <Filter>Systems\TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TestComponent.cpp">
+      <Filter>Components\TestComponent</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Space.h">
+      <Filter>Core\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="coreinclude.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Core\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Core\System</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSystem.h">
+      <Filter>Systems\TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TestComponent.h">
+      <Filter>Components\TestComponent</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{592cc62c-f63a-4fd0-b1df-02ea249fe285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine">
+      <UniqueIdentifier>{3ab4ffd6-0b2b-4d06-bc63-cfeddbeb80fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Component">
+      <UniqueIdentifier>{fe5f5a70-29a7-4e00-beb4-45f6197a28a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Space">
+      <UniqueIdentifier>{ecba78ef-4144-436b-b3aa-0a7fbe4427c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entity">
+      <UniqueIdentifier>{c7072879-4eb8-4dc8-8b4b-96fdaee6483d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\System">
+      <UniqueIdentifier>{b107377b-95ab-4934-95aa-d6c6fd8b1a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{bf0c6b6d-ce94-49cd-b384-e5cb05cc96a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\TestSystem">
+      <UniqueIdentifier>{8fc3ad29-a8f1-4d2c-9f4d-9dbad5f9a11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{0d8a69f2-16ae-4242-bba5-2cd4b58b38cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\TestComponent">
+      <UniqueIdentifier>{db1e084d-54cc-4399-a8c2-bc50dffea5b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

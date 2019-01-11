@@ -1,0 +1,3 @@
+﻿  TestSystem.cpp
+d:\ssi\sats-sims\sim_v1\sim_v1\testsystem.cpp(14): warning C4244: '+=': conversion from 'EE::timeUnit' to 'int', possible loss of data
+  SIM_V1.vcxproj -> D:\SSI\sats-sims\SIM_V1\x64\Debug\SIM_V1.exe
