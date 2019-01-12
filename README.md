@@ -1,5 +1,5 @@
 # SSI Satellites Software
-The goal of this project is to an autonmous spacecraft that can navigate in deep-space via asteroid recognition. 
+The goal of this project is to build an autonmous spacecraft that can navigate in deep-space via asteroid recognition. 
 
 ## How to Get Started
 
