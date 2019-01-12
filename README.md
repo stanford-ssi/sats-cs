@@ -7,6 +7,7 @@ The goal of this project is to an autonmous spacecraft that can navigate in deep
 1. Join the SSI slack
 2. Join channels #satellites and #satellites-software
 3. Send a direct message to @Natalie Cygan with your github username and your email to be added to the repository
+4. Check out [this guide](https://github.com/stanford-ssi/sats-cs/wiki/Getting-Started:-Gitty-up-%F0%9F%A4%A0-%F0%9F%92%BB) on getting started with this repository!
 
 ### Coding
 Clone the git repository (aka download the code). More information is available here: https://help.github.com/articles/cloning-a-repository/
