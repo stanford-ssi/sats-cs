@@ -1,16 +1,18 @@
+/*
+  Stanford Student Space Initiative
+  Satellites | Sims | December 2018
+  Garand Tyson  | gttyson@stanford.edu
+
+  File: System.cpp
+  --------------------------
+  Abstract parent class for system implimentation.
+
+  WARNING: Must update sRegistry in engine.h when new system added.
+*/
+
 #include "System.h"
-//#include "entity.h"
 
 class TestSystem;
-
-using namespace EE;
-
-//EE::System::System(const sType& type)
-//{
-//	type = typeid(*this).name();
-//	this->type = type;
-//}
-
 
 void EE::System::addDependency(const cType& name, Component* depend)
 {

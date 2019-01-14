@@ -62,10 +62,12 @@ namespace EE {
 		// TODO: Better Register abstraction
 		std::unordered_map<sType, System* (*)()> sRegistry = { {"TestSystem", &TestSystem::create},
 			/* More Systems */
+			/* Format: {"#SystemName#", &#SystemName#::create}*/
 		};
 		
 		std::unordered_map<cType, Component* (*)()> cRegistry = { {"TestComponent", &TestComponent::create},
 			/* More Components */
+			/* Format: {"#ComponentName#", &#ComponentName#::create}*/
 		};
 
 	};
