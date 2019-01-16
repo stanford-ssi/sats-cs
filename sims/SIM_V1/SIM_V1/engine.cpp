@@ -1,49 +1,48 @@
+/*
+  Stanford Student Space Initiative
+  Satellites | Sims | December 2018
+  Garand Tyson  | gttyson@stanford.edu
+
+  File: engine.cpp
+  --------------------------
+  Impliments engine.h
+
+  WARNING: Must update sRegistry when new system added.
+  WARNING: Must update cRegistry when new component added.
+*/
+
 #include "Engine.h"
-#include <iostream>
-#include <algorithm>
-#include <stddef.h>
 
-using namespace EE;
-
-Engine* Engine::m_pInstance = NULL;
-
-Engine* Engine::Instance()
-{
-	if (!m_pInstance) {
-		// Ensures only 1 instance exists
-		m_pInstance = new Engine;
-	}
-
-	return m_pInstance;
-}
-
-Engine::Engine()
-{
-	nextId = 0;
-	time = 0.0;
-}
-
-void Engine::loadSpace(Space* space) {
+/*
+ * Function: loadSpace
+ * -------------------
+ * This function sets a space as the active space for the engine.
+ */
+void EE::Engine::loadSpace(Space* space) {
 	currentSpace = space;
 }
 
-void Engine::addEntity(const eType& name) 
+/*
+ * Function: loadSpace
+ * -------------------
+ * This function sets a space as the active space for the engine.
+ */
+void EE::Engine::addEntity(const eType& name) 
 {
 	if (name.empty()) {
 		throw "Invalid name.";
 	}
-	if (currentSpace->idToName.find(nextId) != currentSpace->idToName.end()) {
+	if (currentSpace->idToName.find(currentSpace->nextId) != currentSpace->idToName.end()) {
 		throw "Name already used.";
 	}
-	currentSpace->idToPointer[nextId] = new Entity(name, nextId);
-	currentSpace->idToName[nextId] = name;
-	currentSpace->nameToId[name] = nextId;
-	//systemAddDependencyEvent.connect(&Entity::getComponentPair);
-	++nextId;
+	currentSpace->idToPointer[currentSpace->nextId] = new Entity(name, currentSpace->nextId);
+	currentSpace->idToName[currentSpace->nextId] = name;
+	currentSpace->nameToId[name] = currentSpace->nextId;
+	++currentSpace->nextId;
 }
 
 // Removes and deletes an entity
-void Engine::removeEntity(const eType& name)
+void EE::Engine::removeEntity(const eType& name)
 {
 	if (name.empty()) {
 		throw "Invalid name.";
@@ -107,17 +106,17 @@ void EE::Engine::removeSystem(const sType& system)
 		currentSpace->sysUpdateOrder.end(), system), currentSpace->sysUpdateOrder.end());
 }
 
-Entity* Engine::getEntity(const eType& name) 
+EE::Entity* EE::Engine::getEntity(const eType& name) 
 {
 	return currentSpace->idToPointer[currentSpace->nameToId[name]];
 }
 
-System* Engine::getSystem(const sType& name)
+EE::System* EE::Engine::getSystem(const sType& name)
 {
 	return currentSpace->sNameToPointer[name];
 }
 
-void Engine::addComponent(const eType& eName, const cType& comp) 
+void EE::Engine::addComponent(const eType& eName, const cType& comp) 
 {	
 	auto it = cRegistry.find(comp);
 	if (it == cRegistry.end()) {
@@ -136,7 +135,7 @@ void Engine::addComponent(const eType& eName, const cType& comp)
 	
 }
 
-void Engine::removeComponent(const eType& eName, const cType& comp)
+void EE::Engine::removeComponent(const eType& eName, const cType& comp)
 {
 	auto& ePtr = currentSpace->idToPointer[currentSpace->nameToId[eName]];
 	ePtr->removeComponent(comp);
@@ -146,7 +145,7 @@ void Engine::removeComponent(const eType& eName, const cType& comp)
 	}
 }
 
-void Engine::addSysDependency(const sType& sys, const cType& depend) {
+void EE::Engine::addSysDependency(const sType& sys, const cType& depend) {
 	auto& ptr = currentSpace->sNameToPointer[sys];
 	ptr->dependencies.insert(depend);
 	for (auto& ent : currentSpace->idToPointer) {
@@ -157,21 +156,21 @@ void Engine::addSysDependency(const sType& sys, const cType& depend) {
 	}
 }
 
-void Engine::removeSysDependency(const sType& sys, const cType& depend)
+void EE::Engine::removeSysDependency(const sType& sys, const cType& depend)
 {
 	currentSpace->sNameToPointer[sys]->removeDependency(depend);
 }
 
-void Engine::update(timeUnit dt)
+void EE::Engine::update()
 {
 	for (auto iter = currentSpace->sysUpdateOrder.begin();
 		iter != currentSpace->sysUpdateOrder.end(); ++iter) {
 
-		currentSpace->sNameToPointer[*iter]->update(dt);
+		currentSpace->sNameToPointer[*iter]->update(currentSpace->dt);
 	}
 }
 
-void Engine::debugEntity(const eType& name) 
+void EE::Engine::debugEntity(const eType& name) 
 {
 	currentSpace->idToPointer[currentSpace->nameToId[name]]->debug();
 }
@@ -179,10 +178,10 @@ void Engine::debugEntity(const eType& name)
 #include <iostream>
 #include <string>
 
-void Engine::debugSpace()
+void EE::Engine::debugSpace()
 {
 	std::cout << "------SPACE DEBUG------\n"
-		<< "NEXT ID: " << nextId << "\n"
+		<< "NEXT ID: " << currentSpace->nextId << "\n"
 		<< "CURRENT SPACE:  " << currentSpace << "\n\n"
 		<< "%%% ID TO NAME MAP %%%\n";
 	for (auto elem : currentSpace->idToName) {
@@ -213,7 +212,20 @@ void Engine::debugSpace()
 	std::cout << "\n";
 }
 
-void Engine::debugSystem(const cType& system)
+void EE::Engine::debugSystem(const cType& system)
 {
 	currentSpace->sNameToPointer[system]->debug();
+}
+
+/*******************************  SINGLETON SUPPORT ********************************/
+
+EE::Engine* EE::Engine::m_pInstance = NULL;
+
+EE::Engine* EE::Engine::Instance()
+{
+	/* Ensures only 1 instance exists */
+	if (!m_pInstance) {
+		m_pInstance = new Engine;
+	}
+	return m_pInstance;
 }

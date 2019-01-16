@@ -160,7 +160,6 @@
     <ClCompile Include="component.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="engine.cpp" />
-    <ClCompile Include="Space.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="TestSystem.cpp" />

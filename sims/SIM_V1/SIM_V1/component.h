@@ -18,16 +18,15 @@ namespace EE {
 	class Component
 	{
 	public:
-
-		// Returns cType of component name
+/************************************  FUNCTIONS *************************************/
+		
 		cType getType() const;
-
-		// Debug function
 		virtual void debug() = 0;
 
 	protected:
-		// String literal of component name
-		cType type;
+/************************************  PROPERTIES *************************************/
 
+		/* String literal of component name */
+		cType type;
 	};
 }

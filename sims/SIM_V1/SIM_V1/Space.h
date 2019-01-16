@@ -3,16 +3,13 @@
 #include "coreinclude.h"
 
 namespace EE {
-
 	class Space
 	{
-	public:
-
-		Space();
-		~Space();
-
-
 	private:
+		eId nextId;
+		timeUnit time;
+		timeUnit dt;
+
 		eIdToName idToName;
 		eNameToId nameToId;
 		eIdToPointer idToPointer;
@@ -21,7 +18,6 @@ namespace EE {
 		sNameToPtr sNameToPointer;
 
 		friend class Engine;
-
 	};
 }
 

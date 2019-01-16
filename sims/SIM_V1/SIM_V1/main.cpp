@@ -17,7 +17,7 @@ int main()
 	eng->addSysDependency("TestSystem", "TestComponent");
 
 	for (int i = 0; i < 10; ++i) {
-		eng->update(10);
+		eng->update();
 	}
 
 	/*eng->debugEntity("Test1");

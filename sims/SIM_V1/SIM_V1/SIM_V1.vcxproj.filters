@@ -8,9 +8,6 @@
     <ClCompile Include="component.cpp">
       <Filter>Core\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Space.cpp">
-      <Filter>Core\Space</Filter>
-    </ClCompile>
     <ClCompile Include="entity.cpp">
       <Filter>Core\Entity</Filter>
     </ClCompile>
