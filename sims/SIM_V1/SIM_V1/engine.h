@@ -1,5 +1,18 @@
-#pragma once
+/*
+  Stanford Student Space Initiative
+  Satellites | Sims | December 2018
+  Garand Tyson  | gttyson@stanford.edu
 
+  File: engine.h
+  --------------------------
+  Engine to manage systems, system dependencies, entities, and 
+  components. Runs the simulation for the current space.
+
+  WARNING: Must update sRegistry when new system added.
+  WARNING: Must update cRegistry when new component added.
+*/
+
+#pragma once
 
 #include <algorithm>
 #include "component.h"
@@ -8,66 +21,71 @@
 #include "Space.h"
 #include "System.h"
 
-// Include All Components for registry:
+/******************************  COMPONENT INCLUDES ********************************/
 #include "TestComponent.h"
 
-// Include all Systems for registry:
+/********************************  SYSTEM INCLUDES *********************************/
 #include "TestSystem.h"
-
 
 
 namespace EE {
 	class Engine
 	{
 	public:
-		static Engine* Instance();
+/********************************  FUNCTIONS *********************************/
 
+		/* MANAGE SPACE */
 		void loadSpace(Space* space);
 
+		/* MANAGE ENTITY */
 		void addEntity(const eType& name);
 		void removeEntity(const eType& name);
+		Entity* getEntity(const eType& name);
 
+		/* MANAGE SYSTEM */
 		void addSystem(const sType& system);
 		void removeSystem(const sType& system);
-		
-		Entity* getEntity(const eType& name);
 		System* getSystem(const sType& system);
-
+		void addSysDependency(const sType& sys, const cType& depend);
+		void removeSysDependency(const sType& sys, const cType& depend);
 		
+		/* MANAGE COMPONENT */
 		void addComponent(const eType& eName, const cType& comp);
 		void removeComponent(const eType& eName, const cType& comp);
 
-		void addSysDependency(const sType& sys, const cType& depend);
-		void removeSysDependency(const sType& sys, const cType& depend);
+		/* RUN SIMULATION */
+		void update();
 
-		void update(timeUnit dt);
-
+		/* DEBUG */
 		void debugEntity(const eType& name);
 		void debugSpace();
 		void debugSystem(const cType& system);
 
+		/*******************************  SINGLETON SUPPORT ********************************/
+		static Engine* Instance();
+
 	private:
-		// Singleton Engine:
-		Engine();
+		Engine() {};
 		Engine(Engine const&) {};
 		Engine& operator=(Engine const&) {};
 		static Engine* m_pInstance;
 
+		/************************************  OBJECTS *************************************/
 
 		Space* currentSpace;
-		eId nextId;
-		timeUnit time;
-
 		
-		// TODO: Better Register abstraction
+		// TODO: Better Register abstraction:
+
+		/********************************  SYSTEM REGISTRY *********************************/
 		std::unordered_map<sType, System* (*)()> sRegistry = { {"TestSystem", &TestSystem::create},
-			/* More Systems */
-			/* Format: {"#SystemName#", &#SystemName#::create}*/
+			
+			/* Format: {"#SystemName#", &#SystemName#::create} */
 		};
 		
+		/*******************************  COMPONENT REGISTRY ********************************/
 		std::unordered_map<cType, Component* (*)()> cRegistry = { {"TestComponent", &TestComponent::create},
-			/* More Components */
-			/* Format: {"#ComponentName#", &#ComponentName#::create}*/
+
+			/* Format: {"#ComponentName#", &#ComponentName#::create} */
 		};
 
 	};

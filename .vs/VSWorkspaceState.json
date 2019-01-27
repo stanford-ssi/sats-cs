@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\sims",
+    "\\sims\\SIM_V1"
   ],
+  "SelectedNode": "\\sims\\SIM_V1\\SIM_V1.sln",
   "PreviewInSolutionExplorer": false
 }
