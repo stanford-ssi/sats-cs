@@ -58,8 +58,8 @@ namespace EE {
 
 		/* DEBUG */
 		void debugEntity(const eType& name);
+		void debugSystem(const sType& system);
 		void debugSpace();
-		void debugSystem(const cType& system);
 
 		/*******************************  SINGLETON SUPPORT ********************************/
 		static Engine* Instance();

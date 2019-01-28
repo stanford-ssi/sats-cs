@@ -23,9 +23,10 @@ void EE::Engine::loadSpace(Space* space) {
 }
 
 /*
- * Function: loadSpace
+ * Function: addEntity
  * -------------------
- * This function sets a space as the active space for the engine.
+ * This function adds an entity with name eType name and with the current
+ * space's next available id number.
  */
 void EE::Engine::addEntity(const eType& name) 
 {
@@ -41,7 +42,11 @@ void EE::Engine::addEntity(const eType& name)
 	++currentSpace->nextId;
 }
 
-// Removes and deletes an entity
+/*
+ * Function: removeEntity
+ * -------------------
+ * This function removes an entity with name eType from the current space.
+ */
 void EE::Engine::removeEntity(const eType& name)
 {
 	if (name.empty()) {
@@ -53,7 +58,7 @@ void EE::Engine::removeEntity(const eType& name)
 	const eId& id = currentSpace->nameToId[name];
 	currentSpace->idToName.erase(id);
 	Entity* &ptr = currentSpace->idToPointer[id];
-	// Update Systems
+	/* Updates System Dependency lists */
 	for (auto& comp : ptr->getComponentList()) {
 		for (auto& sys : currentSpace->sNameToPointer) {
 			if (sys.second->dependencies.find(comp.first) != sys.second->dependencies.end()) {
@@ -67,55 +72,77 @@ void EE::Engine::removeEntity(const eType& name)
 	currentSpace->nameToId.erase(name);
 }
 
-// Ref: https://stackoverflow.com/questions/14508076/create-an-object-according-to-a-string-in-c
+/*
+ * Function: addSystem
+ * -------------------
+ * This function adds a System of sType system to the current space. Assumes System is not already
+ * added. Throws error if system not in sRegistry in engine.h.
+ * TODO: Add protection for adding system already in space
+ * Ref: https://stackoverflow.com/questions/14508076/create-an-object-according-to-a-string-in-c
+ */
 void EE::Engine::addSystem(const sType& system)
 {
-	/*if (currentSpace->sNameToPointer.find(system) != currentSpace->sNameToPointer.end()) {
-		throw "ERROR: SYSTEM ALREADY EXISTS";
-	}
-	if (system == "TestSystem") {
-		// Create System and update collections
-		currentSpace->sysUpdateOrder.push_back(system);
-		System* ptr = new TestSystem();
-		currentSpace->sNameToPointer[system] = ptr;
-	}
-	else {
-		throw "ERROR: INVALID SYSTEM NAME";
-	}*/
+	/* Find System in registry */
 	auto it = sRegistry.find(system);
 	if (it == sRegistry.end()) {
 		throw "INVALID SYSTEM NAME";
 	} else {
-		// Create System and update collections
+		/* Create System and update collections */
 		currentSpace->sysUpdateOrder.push_back(system);
 		currentSpace->sNameToPointer[system] = (it->second)();
 	}
 }
 
+/*
+ * Function: removeSystem
+ * -------------------
+ * This function removes a Ssytem of sType system from the current space. If system does
+ * not exist on current space, function throws error.
+ */
 void EE::Engine::removeSystem(const sType& system)
 {
 	if (currentSpace->sNameToPointer.find(system) == currentSpace->sNameToPointer.end()) {
 		throw "ERROR: SYSTEM NOT FOUND";
 	}
-	// Delete system from heap
+	/* Delete system from heap */
 	delete currentSpace->sNameToPointer[system];
-	// Delete system pointer in space map
+	/* Delete system pointer in space map */
 	currentSpace->sNameToPointer.erase(system);
-	// Remove System from update order
+	/* Remove System from update order */
 	currentSpace->sysUpdateOrder.erase(std::remove(currentSpace->sysUpdateOrder.begin(),
 		currentSpace->sysUpdateOrder.end(), system), currentSpace->sysUpdateOrder.end());
 }
 
+/*
+ * Function: getEntity
+ * -------------------
+ * Returns Entity* of type eType name from the current space. Returns nullptr if
+ * entity does not exist on current space.
+ */
 EE::Entity* EE::Engine::getEntity(const eType& name) 
 {
 	return currentSpace->idToPointer[currentSpace->nameToId[name]];
 }
 
+/*
+ * Function: getSystem
+ * -------------------
+ * Returns System* of type sType name from the current space. Returns nullptr if
+ * system does not exist on current space.
+ */
 EE::System* EE::Engine::getSystem(const sType& name)
 {
 	return currentSpace->sNameToPointer[name];
 }
 
+/*
+ * Function: addComponent
+ * -------------------
+ * Adds component of cType comp to entity of eType name to current space. If component
+ * is not on cRegistry in engine.h, throws error.
+ * Assumes entity exists on current space, seg faults if not.
+ * TODO: Add protection for invalid entity entry
+ */
 void EE::Engine::addComponent(const eType& eName, const cType& comp) 
 {	
 	auto it = cRegistry.find(comp);
@@ -125,26 +152,39 @@ void EE::Engine::addComponent(const eType& eName, const cType& comp)
 	auto& ePtr = currentSpace->idToPointer[currentSpace->nameToId[eName]];
 	Component* cPtr = (it->second)();
 	ePtr->addComponent((it->second)());
-	// Update System
+	/* Update System */
 	for (auto sys : currentSpace->sNameToPointer) {
 		if (sys.second->dependencies.find(comp) != sys.second->dependencies.end()) {
 			sys.second->addDependency(comp, cPtr);
 		}
 	}
-	
-	
 }
 
+/*
+ * Function: removeComponent
+ * -------------------
+ * Removes component of cType comp from entity of eType name from current space. If component
+ * is not on cRegistry in engine.h, throws error.
+ * Assumes entity exists on current space, seg faults if not.
+ * TODO: Add protection for invalid entity entry
+ */
 void EE::Engine::removeComponent(const eType& eName, const cType& comp)
 {
 	auto& ePtr = currentSpace->idToPointer[currentSpace->nameToId[eName]];
 	ePtr->removeComponent(comp);
-	// Update System
+	/* Update System */
 	for (auto& sys : currentSpace->sNameToPointer) {
 		sys.second->removeDependency(comp);
 	}
 }
 
+/*
+ * Function: addSysDependency
+ * -------------------
+ * Add component dependency of cType depend to System of sType sys.
+ * Assumes system and component exist.
+ * TODO: Add protection for invalid systems and components.
+ */
 void EE::Engine::addSysDependency(const sType& sys, const cType& depend) {
 	auto& ptr = currentSpace->sNameToPointer[sys];
 	ptr->dependencies.insert(depend);
@@ -156,11 +196,24 @@ void EE::Engine::addSysDependency(const sType& sys, const cType& depend) {
 	}
 }
 
+/*
+ * Function: removeSysDependency
+ * -------------------
+ * Removes component dependency of cType depend from System of sType sys.
+ * Assumes system and component exist.
+ * TODO: Add protection for invalid systems and components.
+ */
 void EE::Engine::removeSysDependency(const sType& sys, const cType& depend)
 {
 	currentSpace->sNameToPointer[sys]->removeDependency(depend);
 }
 
+/*
+ * Function: update
+ * -------------------
+ * Calls update function on each system in the current space in the order specified by 
+ * sysUpdateOrder with the timestamp parameter dt from the current space.
+ */
 void EE::Engine::update()
 {
 	for (auto iter = currentSpace->sysUpdateOrder.begin();
@@ -170,14 +223,37 @@ void EE::Engine::update()
 	}
 }
 
+/*
+ * Function: debugEntity
+ * -------------------
+ * Calls the debug function for entity of eType name.
+ * Assumes entity exists.
+ * TODO: Add protection for invalid entities.
+ */
 void EE::Engine::debugEntity(const eType& name) 
 {
 	currentSpace->idToPointer[currentSpace->nameToId[name]]->debug();
 }
 
+/*
+ * Function: debugSystem
+ * -------------------
+ * Calls the debug function for System of sType system.
+ * Assumes system exists.
+ * TODO: Add protection for invalid systems.
+ */
+void EE::Engine::debugSystem(const sType& system)
+{
+	currentSpace->sNameToPointer[system]->debug();
+}
+
+/*
+ * Function: debugSpace
+ * -------------------
+ * Prints several debug statements about current space.
+ */
 #include <iostream>
 #include <string>
-
 void EE::Engine::debugSpace()
 {
 	std::cout << "------SPACE DEBUG------\n"
@@ -210,11 +286,6 @@ void EE::Engine::debugSpace()
 		std::cout << elem.first << "  :  " << elem.second << "\n";
 	}
 	std::cout << "\n";
-}
-
-void EE::Engine::debugSystem(const cType& system)
-{
-	currentSpace->sNameToPointer[system]->debug();
 }
 
 /*******************************  SINGLETON SUPPORT ********************************/
