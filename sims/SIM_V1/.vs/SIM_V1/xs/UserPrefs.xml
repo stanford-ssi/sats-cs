@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SIM_V1/ComponentWriter.cpp">
+    <Files>
+      <File FileName="SIM_V1/main.cpp" Line="18" Column="2" />
+      <File FileName="SIM_V1/Space.h" Line="40" Column="1" />
+      <File FileName="SIM_V1/mass.cpp" Line="11" Column="3" />
+      <File FileName="SIM_V1/ComponentWriter.h" Line="10" Column="29" />
+      <File FileName="SIM_V1/ComponentWriter.cpp" Line="6" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x64" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -175,6 +175,10 @@
     <ClInclude Include="TestComponent.h" />
     <ClInclude Include="TestSystem.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ComponentWriter.h" />
+    <None Include="ComponentWriter.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
