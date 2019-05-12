@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SIM_V1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SIM_V1">
+				<Option output="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/SIM_V1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SIM_V1"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SIM_V1/fast">
+				<Option output="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/SIM_V1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 SIM_V1/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/ComponentWriter.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/ComponentWriter.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/Drag.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/Drag.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/DragSystem.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/DragSystem.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/Force.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/Force.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/ForceSystem.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/ForceSystem.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/Space.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/System.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/System.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/TestComponent.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/TestComponent.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/TestSystem.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/TestSystem.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/body.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/body.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/component.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/component.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/coreinclude.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/engine.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/engine.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/entity.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/entity.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/main.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/mass.cpp">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/mass.h">
+			<Option target="SIM_V1"/>
+		</Unit>
+		<Unit filename="/Users/Jason/Desktop/SSI/sats-cs/sims/SIM_V1/SIM_V1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
